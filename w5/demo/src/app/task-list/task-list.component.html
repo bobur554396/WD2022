@@ -1,0 +1,37 @@
+<fieldset>
+  <input type="text" [(ngModel)]="currentTask.title">
+  <button (click)="addTodo()">Add Todo</button>
+</fieldset>
+
+<div>
+
+  <h2>New ToDos</h2>
+  <ul *ngIf="newTasks.length">
+    <li *ngFor="let task of newTasks">
+      <app-task-item [task]="task"
+                     (remove)="onNewTaskRemove($event)"
+                     (done)="onIsDoneChanged($event)"></app-task-item>
+    </li>
+  </ul>
+  <p *ngIf="newTasks.length == 0">
+    The list is empty
+  </p>
+</div>
+
+
+<div>
+  <h2>Done ToDos</h2>
+  <ul *ngIf="doneTasks.length">
+    <li *ngFor="let task of doneTasks">
+      <app-task-item [task]="task"
+                     (remove)="onDoneTaskRemove($event)"
+                     (done)="onIsDoneChanged($event)"></app-task-item>
+    </li>
+  </ul>
+  <p *ngIf="doneTasks.length == 0">
+    The list is empty
+  </p>
+</div>
+
+<!-- [] -- inputs for component -->
+<!-- () -- outputs from component -->
