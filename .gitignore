@@ -48,6 +48,8 @@
 .*
 ~*
 
+__pycache__/
+
 # ignore node/grunt dependency directories
 node_modules/
 
